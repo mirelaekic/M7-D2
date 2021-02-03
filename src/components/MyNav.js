@@ -12,7 +12,9 @@ export default class MyNav extends Component {
   state = {
     newSearch: { position: "", location: "" },
     jobs: [],
+    selectedJob:null
   };
+  changeJob = (id) => this.setState({jobSelected:id})
   changeHandler = (e) => {
     this.setState({
       newSearch: {
@@ -45,7 +47,7 @@ export default class MyNav extends Component {
     console.log(this.state.jobs,"FOUND JOBS");
     return (
     <div>
-      <Navbar bg="dark" variant="dark">
+      <Navbar sticky="top" bg="dark" variant="dark">
         <Container>
           <Navbar.Brand href="#home">
             <strong>GitHub</strong>Jobs
@@ -77,7 +79,12 @@ export default class MyNav extends Component {
           </Nav>
         </Container>
       </Navbar>
-      <JobPost job={this.state.jobs}/>
+      <JobPost 
+      key={this.state.jobs.id}
+      job={this.state.jobs}
+      changeJob={this.changeJob}
+      jobSelected={this.state.selectedJob}
+      />
       </div>
     );
   }
