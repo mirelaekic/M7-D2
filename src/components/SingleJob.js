@@ -21,7 +21,7 @@ export default class SingleJob extends Component {
           <Card style={{ width: "50rem" ,marginTop:"34px"}}>
               <Card.Header>
               <Card.Text className="text-muted">
-              Posted at: <Moment format="Do MMMM YYYY - HH:mm">{job.created_at}</Moment> | {job.type}
+              Posted at: <Moment format="Do MMMM YYYY">{job.created_at}</Moment> | {job.type}
               </Card.Text>
               </Card.Header>
             <Card.Body>
